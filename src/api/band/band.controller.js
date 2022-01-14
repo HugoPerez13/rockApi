@@ -22,7 +22,7 @@ const createBand = async (req, res, next) => {
 
 const getBand = async (req, res, next) => {
   try {
-    const band = await Band.find();
+    const band = await Band.find().populate("albums");
     if (!band) {
       console.log("error al buscar la banda");
     }

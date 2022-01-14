@@ -6,11 +6,11 @@ const albumSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-/*photoAlbum:{
+photoAlbum:{
     type: "string",
     required: true,
     trim: true,
-}*/
+}
  
 });
 const Album = mongoose.model("album", albumSchema);

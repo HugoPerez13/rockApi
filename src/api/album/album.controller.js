@@ -9,6 +9,9 @@ const createAlbum = async (req, res, next) => {
         name: req.body.name,
         photoAlbum: req.body.photoAlbum,
       });
+      if (req.file){
+          album.photoAlbum = req.file.path
+      }
       album.save().then(() => {
         res.status(201).json({
           message: "Album upload",

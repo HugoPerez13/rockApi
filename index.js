@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
+const cloudinary = require("cloudinary").v2;
+const cors =require("cors");
 //const jwt = require("jsonwebtoken");
 dotenv.config;
 const userRoute = require("./src/api/user/user.routes");
@@ -12,6 +14,11 @@ const { connect } = require("./src/utils/database/db");
 app = express();
 
 connect();
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
+})
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, PATCH");
   res.header("Access-Control-Allow-Credentials", true);

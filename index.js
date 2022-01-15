@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const cloudinary = require("cloudinary").v2;
 const cors =require("cors");
-//const jwt = require("jsonwebtoken");
+
 dotenv.config;
 const userRoute = require("./src/api/user/user.routes");
 const albumRoute = require("./src/api/album/album.routes");

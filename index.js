@@ -36,6 +36,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/api/users", userRoute);
 app.use("/api/albums", albumRoute);
 app.use("/api/band", bandRoute);
+app.use("/api", (req, res, next) => {
+  return res.json({
+    message: "BIENVENIDOS A ROCKAPI",
+    res: ["/api/albums", "/api/band"],
+  });
+});
+
+app.use("/", (req, res, next) => {
+  return next(res.status(404).json("ROUTE NOT FOUND"));
+});
+
+app.use("/api", (req, res, next) => {
+  return next(res.status(404).json("ROUTE NOT FOUND"));
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);

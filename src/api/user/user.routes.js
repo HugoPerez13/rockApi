@@ -4,6 +4,7 @@ const { validate } = require("../../utils/validator/validator");
 const {isAuth} =require("../../utils/middlewares/auth");
 userRoute.get("/", getUser);
 
+userRoute.get("/",[isAuth], getUser);
 userRoute.post("/register", validate("createUser"), createUser);
 userRoute.post("/login", login);
 

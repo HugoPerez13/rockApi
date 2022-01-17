@@ -43,13 +43,13 @@ app.use("/api", (req, res, next) => {
   });
 });
 
-app.use("/", (req, res, next) => {
+/*app.use("/", (req, res, next) => {
   return next(res.status(404).json("ROUTE NOT FOUND"));
 });
 
 app.use("/api", (req, res, next) => {
   return next(res.status(404).json("ROUTE NOT FOUND"));
-});
+});*/
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
